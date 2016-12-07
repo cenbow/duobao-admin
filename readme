@@ -1,0 +1,2 @@
+爱必浓管理平台
+更新脚本：sudo -u deploy /data/wwwroot/backyard-aibinong-platform/build.sh trunk

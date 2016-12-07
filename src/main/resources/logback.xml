@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+    <!-- /ky/data/eye_pro_log;/ky/data/eye_pro_test_log;/Users/zhangzhiguang/Documents/logs/eye_pro -->
+    <property name="BASE_PATH" value="/Users/zhangzhiguang/Documents/backyard/logs" />
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>%d %-5level [%thread] %C[%M %L]- %msg%n</pattern>
+        </layout>
+    </appender>
+
+    <appender name="rollingAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <Encoding>UTF-8</Encoding>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${BASE_PATH}/backyard.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d %-5level [%thread] %C[%M %L]- %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="rollingAppender" />
+    </root>
+</configuration>
